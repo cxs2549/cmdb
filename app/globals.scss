@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-black text-white antialiased;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  // border: 1px solid white;
+  scrollbar-width: none !important;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

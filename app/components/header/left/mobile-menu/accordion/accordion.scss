@@ -1,0 +1,100 @@
+#accordion::-webkit-scrollbar {
+  display: none;
+}
+
+$cAccent: #3978ef;
+$cBlack: #121212;
+$cGray: #333;
+$cLightGray: rgba(#000, 0.1);
+$duration: 0.1s;
+$timing-function: ease-out;
+$delay: 0.25;
+.wrapper {
+  min-width: 280px;
+  max-width: 950px;
+  @apply rounded-tr-xl;
+}
+.accordion-list {
+  list-style: none;
+  margin: 0;
+  padding-bottom: 0.25rem;
+  @apply bg-dark;
+  width: 100%;
+  overflow: hidden;
+}
+
+.accordion-item {
+  $self: &;
+  &--opened {
+    #{ $self }__icon {
+      transform: rotate(180deg);
+    }
+
+    #{ $self }__line-icon {
+      @apply text-brand;
+    }
+
+    #{ $self }__title {
+      @apply text-brand;
+    }
+  }
+  &__line {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1.2rem;
+    display: flex;
+    height: 100%;
+    // border: 1px solid white;
+    // justify-content: space-between;
+    align-items: center;
+    @apply bg-dark;
+    z-index: 2;
+    position: relative;
+  }
+
+  &__title {
+    font-size: 1rem;
+    margin-left: 1rem;
+    font-weight: 500;
+    @apply text-white/60;
+  }
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform 0.1s;
+    animation-timing-function: $timing-function;
+    transition-delay: $delay;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAQAAABIkb+zAAABGklEQVR4Ae3RAcZCQRiF4buDfwshBGi+2UQgcIGAVtpSIuS/KyilG+UTcbk6zIH3GQBm3mM6AAAAAAAAAACA+eqf/yZBXcV/2XeCVPYx1FXj/FjGUMd45AQp/1HHGGLZNL+e61jHnKDmv8652YT1IvPfE2LX/Sh27/ycsF60yT/lk58JYn6eU4MJccjnlAmZ/33i0OAH4jg9Qcw/5g9YJpS+m6n0xvzpCfVe+nn59S7kGyYo+YYJWz3fO+E2PaFs9XzPhMy/6fmWCXq+YUJs9HzrhLh+JsQmrnq+bYKeb52g53snXPR88wQ93z9Bz/dP0PP9E/R89wQ93zpBz7dO0POtE/R86wQ93zpBzzdP+MoHAAAAAAAAAADAExTnTW20AtjhAAAAAElFTkSuQmCC);
+    opacity: 0.6;
+    margin-left: auto;
+  }
+  &__inner {
+    max-height: 0;
+    overflow: hidden;
+    text-transform: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    transition-duration: $duration;
+    transition-property: max-height;
+    z-index: 1;
+    position: relative;
+  }
+  &__content {
+    opacity: 0;
+    // transform: translateY(-1rem);
+    // transition-timing-function: linear, ease;
+    // transition-duration: 0.1s;
+    // transition-delay: $delay;
+    // transition-property: opacity;
+    // transition-delay: 0.5s;
+    padding: 0 1.2rem 1.2rem;
+  }
+  &__paragraph {
+    margin: 0;
+    font-size: 1rem;
+    color: $cGray;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+}
