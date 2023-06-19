@@ -34,11 +34,11 @@ const Slideshow = ({ added, setAdded }) => {
         effect="fade"
         className="lg:min-w-[607px] h-fit z-0 relative  flex-1"
         modules={[EffectFade, Autoplay, Keyboard]}
-        // autoplay={{
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        //   stopOnLastSlide: true,
-        // }}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+          stopOnLastSlide: true,
+        }}
         keyboard={{ enabled: true }}
         spaceBetween={0}
         slidesPerView={1}
